@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {RegistrationDialogDirective} from './registration-dialog.directive';
 import {NgForm} from '@angular/forms';
-import {Registration, RegistrationStatus} from './registration';
+import {Registration} from './registration.types';
 import {RegistrationService} from './registration.service';
 
 @Component({
@@ -19,7 +19,9 @@ export class UserRegistrationComponent {
   private registrationDialog: RegistrationDialogDirective;
 
   constructor(public registrationService: RegistrationService) {
-    registrationService.registrationObservable.subscribe(this.handleRegistrationObservable.bind(this));
+    registrationService.renderRegistrationObservable.subscribe(this.renderDialog.bind(this));
+    registrationService.openRegistrationObservable.subscribe(this.openDialog.bind(this));
+    registrationService.closedRegistrationObservable.subscribe(this.closeDialog.bind(this));
   }
 
   public onButtonClick() {
@@ -32,29 +34,14 @@ export class UserRegistrationComponent {
     }
   }
 
+  private renderDialog(registration) {
+    this.registration = registration;
+  }
   private openDialog() {
-    if (this.registrationDialog.isOpened()) {
-      return;
-    }
     this.registrationDialog.openDialog();
   }
 
-  private closeDialog() {
-    if (!this.registrationDialog) {
-      return;
-    }
+  private closeDialog(registration) {
     this.registrationDialog.closeDialog();
-  }
-
-  private handleRegistrationObservable(registration: Registration) {
-    this.registration = registration;
-    switch (registration.status) {
-      case RegistrationStatus.OPEN:
-      case RegistrationStatus.PROCESSING:
-        this.openDialog();
-        break;
-      default:
-        this.closeDialog();
-    }
   }
 }

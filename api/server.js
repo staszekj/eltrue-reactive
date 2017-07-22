@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
-app.use('/api', require('./router'));
+app.use('/api', require('./api'));
 app.use('/', express.static('public'));
 
 app.listen(port, function (err) {

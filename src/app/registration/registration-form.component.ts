@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Registration, RegistrationStatus} from './registration';
+import {Registration, RegistrationStatus} from './registration.types';
 
 @Component({
   selector: 'el-registration-form',

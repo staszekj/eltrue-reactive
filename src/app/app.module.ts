@@ -12,11 +12,12 @@ import {ROUTES} from './app.routes';
 // App is our top level component
 import {AppComponent} from './app.component';
 import {APP_RESOLVER_PROVIDERS} from './app.resolver';
-import {AppService, InternalStateType} from './app.service';
+import {AppService} from './app.service';
 
 import '../styles/styles.scss';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UsersModule} from './users/users.module';
+import {AppStateType} from './app.types';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -25,7 +26,7 @@ const APP_PROVIDERS = [
 ];
 
 interface StoreType {
-  state: InternalStateType;
+  state: AppStateType;
   restoreInputValues: () => void;
   disposeOldHosts: () => void;
 }

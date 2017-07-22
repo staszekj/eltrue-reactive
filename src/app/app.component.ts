@@ -6,16 +6,14 @@ import {AppService} from './app.service';
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./app.component.scss'],
   template: `
+    <!--
     <nav>
       <a [routerLink]=" ['./'] "
          routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         Index
       </a>
-      <a [routerLink]=" ['./registration'] "
-         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        Users
-      </a>
     </nav>
+    -->
 
     <main>
       <router-outlet></router-outlet>
