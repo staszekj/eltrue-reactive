@@ -17,7 +17,7 @@ export interface HttpValue {
 }
 
 const AppStateImmutable = Record({
-  registration: new Registration(),
+  registration: new Registration('John', 'Smith'),
   lastHttp: new Map()
 });
 export class AppStateType extends AppStateImmutable {

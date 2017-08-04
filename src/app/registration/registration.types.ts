@@ -17,6 +17,14 @@ export class Registration extends RegistationImmutable {
   public firstName: string;
   public lastName: string;
   public status: RegistrationStatus;
+
+  public constructor(firstName: string, lastName: string) {
+    super({
+      firstName,
+      lastName,
+      status: RegistrationStatus.CLOSED
+    });
+  }
 }
 export const API_REGISTRATION = '/api/registration';
 
