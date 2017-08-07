@@ -19,7 +19,7 @@ export class AppService {
   public setIn(keyPath: [any], value: any) {
     this._state = this._state.setIn(keyPath, value) as AppStateType;
     this._stateSubject.next({state: this._state, keyPath});
-    console.log('setIn', this._state.toJS());
+    console.log('setIn', keyPath, this._state.toJS());
   }
 
   public get state(): AppStateType {

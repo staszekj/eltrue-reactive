@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AppService} from '../app.service';
-import {Http, RequestMethod} from '@angular/http';
+import {Headers, Http, RequestMethod} from '@angular/http';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/filter';
 import {API_REGISTRATION, Registration, RegistrationStatus, STATUS} from './registration.types';
@@ -54,7 +54,9 @@ export class RegistrationService {
 
   private processHttpSubmit(registration: Registration) {
     this.app.setIn([REGISTRATION, STATUS], RegistrationStatus.PROCESSING);
-    return this.http.put(API_REGISTRATION, registration)
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(API_REGISTRATION, JSON.stringify(registration), {headers})
       .delay(2000)
       .subscribe(r => {
         const httpKey = new HttpKey(RequestMethod.Put, API_REGISTRATION);
