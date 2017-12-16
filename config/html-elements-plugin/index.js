@@ -114,4 +114,5 @@ function getHtmlElementString(dataSource, publicPath) {
     }, [])
     .join('\n\t');
 }
+
 module.exports = HtmlElementsPlugin;

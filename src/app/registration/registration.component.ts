@@ -11,7 +11,7 @@ import {RegistrationService} from './registration.service';
                           [registration]='registration'
                           (onRegistationSubmit)='onRegistrationSubmit($event)'>
     </el-registration-form>
-    <button md-raised-button (click)='onButtonClick()'>Registration form</button>`
+    <button mat-raised-button (click)='onButtonClick()'>Registration form</button>`
 })
 export class UserRegistrationComponent {
   public registration: Registration;

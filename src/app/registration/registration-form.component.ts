@@ -4,28 +4,28 @@ import {Registration, RegistrationStatus} from './registration.types';
 
 @Component({
   selector: 'el-registration-form',
-  template: `<h1 md-dialog-title>Registration</h1>
+  template: `<h1 mat-dialog-title>Registration</h1>
   <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
-    <div md-dialog-content>
-      <md-input-container>
+    <div mat-dialog-content>
+      <mat-input-container>
         <input name="firstName"
                [(ngModel)]="registration.firstName"
                #firstName="ngModel"
                placeholder="First Name"
-               mdInput required/>
-      </md-input-container>
-      <md-input-container>
+               matInput required/>
+      </mat-input-container>
+      <mat-input-container>
         <input name="lastName"
                [(ngModel)]="registration.lastName"
                #lastName="ngModel"
                placeholder="Last Name"
-               mdInput required/>
-      </md-input-container>
+               matInput required/>
+      </mat-input-container>
     </div>
-    <md-progress-bar *ngIf="isProcessing()" mode="query"></md-progress-bar>
-    <div md-dialog-actions>
-      <button type="submit" md-button>Submit</button>
-      <button type="reset" md-button>Reset</button>
+    <mat-progress-bar *ngIf="isProcessing()" mode="query"></mat-progress-bar>
+    <div mat-dialog-actions>
+      <button type="submit" mat-button>Submit</button>
+      <button type="reset" mat-button>Reset</button>
     </div>
   </form>`
 })
