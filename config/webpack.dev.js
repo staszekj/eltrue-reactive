@@ -162,6 +162,11 @@ module.exports = function (options) {
         // app.get('/some/path', function(req, res) {
         //   res.json({ custom: 'response' });
         // });
+      },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080'
+        }
       }
     },
 
