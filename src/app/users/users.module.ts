@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {UsersComponent} from './users.component';
 import {RegistrationModule} from '../registration/registration.module';
-import {UsersListModule} from '../usersList/users-list.module';
+import {UserslistModule} from '../users-list/users-list.module';
 
 @NgModule({
-  imports: [RegistrationModule, UsersListModule],
+  imports: [RegistrationModule, UserslistModule],
   declarations: [UsersComponent],
   exports: [],
   providers: []
