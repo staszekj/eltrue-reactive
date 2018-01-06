@@ -6,7 +6,7 @@ import {MatTableDataSource} from '@angular/material';
 import {Row} from './users-list.types';
 
 @Component({
-  selector: 'el-users2-list',
+  selector: 'el-users-list',
   styleUrls: ['users-list.css'],
   template: `
     <div class="example-container mat-elevation-z8">
@@ -17,21 +17,16 @@ import {Row} from './users-list.types';
       </div>
 
       <mat-table #table [dataSource]="dataSource">
-
-        <!-- Position Column -->
         <ng-container matColumnDef="firstName">
           <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
           <mat-cell *matCellDef="let element='$implicit'"> {{element.firstName}}</mat-cell>
         </ng-container>
-
-        <!-- Name Column -->
         <ng-container matColumnDef="lastName">
           <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
           <mat-cell *matCellDef="let element='$implicit'"> {{element.lastName}}</mat-cell>
         </ng-container>
-
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row='$implicit'; columns: displayedColumns "></mat-row>
+        <mat-row *matRowDef="let row='$implicit'; columns: displayedColumns"></mat-row>
       </mat-table>
     </div>
   `
