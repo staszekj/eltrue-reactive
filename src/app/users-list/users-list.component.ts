@@ -21,17 +21,17 @@ import {Row} from './users-list.types';
         <!-- Position Column -->
         <ng-container matColumnDef="firstName">
           <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.firstName}}</mat-cell>
+          <mat-cell *matCellDef="let element='$implicit'"> {{element.firstName}}</mat-cell>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="lastName">
           <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.lastName}}</mat-cell>
+          <mat-cell *matCellDef="let element='$implicit'"> {{element.lastName}}</mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row='$implicit'; columns: displayedColumns "></mat-row>
       </mat-table>
     </div>
   `
